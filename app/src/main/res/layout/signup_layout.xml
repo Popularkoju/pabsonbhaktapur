@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorBluego"
+    android:paddingBottom="16dp">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/cross"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/close_icon"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:padding="10dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtRegister"
+            android:layout_toLeftOf="@+id/cross"
+            android:gravity="center"
+            android:text="Sign Up"
+            android:layout_marginTop="5dp"
+            android:textSize="25sp"
+            android:textColor="@color/white"/>
+    </RelativeLayout>
+    <!--<ScrollView android:layout_height="match_parent"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_marginTop="50dp"-->
+        <!--xmlns:android="http://schemas.android.com/apk/res/android" >-->
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" android:layout_marginTop="2dp">
+
+
+
+            <EditText
+                android:id="@+id/signupusername"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="50dp"
+                android:background="@drawable/edit_text_background"
+                android:drawablePadding="16dp"
+                android:fontFamily="@font/questrial"
+                android:hint="Username"
+                android:padding="16dp" />
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/inputlayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/signupusername"
+                app:passwordToggleEnabled="true"
+                app:hintEnabled="false"
+                android:layout_marginTop="16dp"
+                >
+
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/signuppassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="20dp"
+                    android:background="@drawable/edit_text_background"
+                    android:drawablePadding="16dp"
+                    android:hint="Password"
+                    android:fontFamily="@font/questrial"
+                    android:inputType="textPassword"
+                    android:padding="16dp" />
+
+            </android.support.design.widget.TextInputLayout>
+            <TextView
+                android:id="@+id/schooldetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="32dp"
+                android:layout_below="@id/inputlayout"
+                android:text="School Details:"
+                android:fontFamily="@font/questrial"
+                android:layout_marginStart="16dp"
+                android:gravity="right"
+                android:textColor="#ffff"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/NameOFSchool"
+                android:layout_below="@id/schooldetails"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/edit_text_background"
+                android:drawablePadding="16dp"
+                android:fontFamily="@font/questrial"
+                android:hint="Name of School"
+                android:padding="16dp" />
+            <TextView
+                android:id="@+id/spinnerErr"
+                android:layout_below="@id/NameOFSchool"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="16dp"
+
+                android:layout_marginEnd="20dp"
+                android:text="Choose Municipality:"
+                android:fontFamily="@font/questrial"
+
+
+                android:textColor="#ffff"
+                android:textSize="14sp"
+                android:layout_alignParentRight="true"
+
+                />
+
+            <Spinner
+                android:id="@+id/spinner"
+                android:layout_below="@+id/spinnerErr"
+                android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginEnd="20dp"
+
+
+                android:prompt="@string/municipalitylis"
+                android:paddingLeft="3dp"
+                android:background="@drawable/edit_text_background"/>
+
+            <EditText
+                android:id="@+id/locationOfSchool"
+                android:layout_below="@id/spinner"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/edit_text_background"
+                android:drawablePadding="16dp"
+                android:fontFamily="@font/questrial"
+                android:hint="Address Eg: Lokanthali"
+                android:padding="16dp" />
+            <EditText
+                android:id="@+id/contactOfSchool"
+                android:layout_below="@id/locationOfSchool"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/edit_text_background"
+                android:drawablePadding="16dp"
+                android:fontFamily="@font/questrial"
+                android:hint="Phone Number of School"
+                android:inputType="number"
+                android:padding="16dp" />
+            <EditText
+                android:id="@+id/emailOfSchool"
+                android:layout_below="@id/contactOfSchool"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/edit_text_background"
+                android:drawablePadding="16dp"
+                android:fontFamily="@font/questrial"
+                android:hint="Email of School"
+                android:inputType="textEmailAddress"
+                android:padding="16dp" />
+            <EditText
+                android:id="@+id/EstdOfSchool"
+                android:layout_below="@id/emailOfSchool"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/edit_text_background"
+                android:drawablePadding="16dp"
+                android:fontFamily="@font/questrial"
+                android:hint="Estd. Date (Year in BS)"
+                android:inputType="number"
+                android:padding="16dp" />
+
+            <TextView
+                android:id="@+id/Principaldetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="32dp"
+                android:layout_below="@id/EstdOfSchool"
+                android:text="Principal Details:"
+                android:fontFamily="@font/questrial"
+                android:layout_marginStart="16dp"
+                android:gravity="right"
+                android:textColor="#ffff"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/nameofPrincipal"
+                android:layout_below="@id/Principaldetails"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/edit_text_background"
+                android:drawablePadding="16dp"
+                android:fontFamily="@font/questrial"
+                android:hint="Name"
+                android:padding="16dp" />
+
+
+            <EditText
+                android:id="@+id/emailOfPrinciipal"
+                android:layout_below="@id/nameofPrincipal"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/edit_text_background"
+                android:drawablePadding="16dp"
+                android:fontFamily="@font/questrial"
+                android:hint="Email Address"
+                android:inputType="textEmailAddress"
+                android:padding="16dp" />
+            <EditText
+                android:id="@+id/contactofPrincipal"
+                android:layout_below="@id/emailOfPrinciipal"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/edit_text_background"
+                android:drawablePadding="16dp"
+                android:fontFamily="@font/questrial"
+                android:hint="Mobile Number"
+                android:inputType="number"
+                android:padding="16dp" />
+
+            <Button
+                android:id="@+id/registerbtn"
+                android:layout_below="@id/contactofPrincipal"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:layout_centerInParent="true"
+
+                android:layout_marginTop="16dp"
+                android:background="@drawable/buttton_background"
+                android:text="Sign Up"
+                android:fontFamily="@font/questrial"
+                android:textColor="#ffffff"
+                android:textSize="20sp" />
+
+
+
+
+        </RelativeLayout>
+    <!--</ScrollView>-->
+</RelativeLayout>
+</ScrollView>
