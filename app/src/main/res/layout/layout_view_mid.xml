@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        >
+
+        <!--top tool bar-->
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/layouttop">
+            <!--<include layout="@layout/top_toolbar_layout"/>-->
+
+        </RelativeLayout>
+
+        <!--middle -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/layoutmid"
+            android:layout_below="@+id/layouttop"
+            android:layout_marginBottom="46dp"
+
+
+            >
+
+            <include layout="@layout/center_view_layout"
+                />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/buttom_nav"
+            >
+
+            <include layout="@layout/buttom_nav_layout"/>
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <!--buttom nav bar-->
+
+
+
+
+
+
+
+
+</android.support.design.widget.CoordinatorLayout>

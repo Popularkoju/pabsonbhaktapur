@@ -38,7 +38,7 @@ public class SessionManager {
     private static final String IS_LOGIN = "IsLoggedIn";
 
     // User name (make variable public to access from outside)
-    public static final String KEY_EMAIL = "Email";
+    public static final String KEY_EMAIL = "username";
 //    public static final String KEY_NAME = "Name";
 
 

@@ -36,10 +36,13 @@ import java.util.Map;
 
 import lintend.pabson.bhaktapur.MainActivity;
 import lintend.pabson.bhaktapur.R;
+import lintend.pabson.bhaktapur.SessionManager;
 
 import static java.security.AccessController.getContext;
 
 public class loginActivity extends AppCompatActivity {
+
+    SessionManager sessionManager;
     AlertDialog dialogs;
     // login ativity
     EditText username, password;
@@ -57,17 +60,26 @@ public class loginActivity extends AppCompatActivity {
     ImageView close;
     RequestQueue requestQueues;
 
-    ProgressDialog dialog;
+    ProgressDialog progressDialog;
     String
     rejex="^[A-Za-z][A-Za-z0-9]*([._-]?[A-Za-z0-9]+)@[A-Za-z].[A-Za-z]{0,3}?.[A-Za-z]{0,2}$";
 
+    String emailCheck = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 
-    String loginURL = "http://192.168.1.174:8080/pabson/login/login.php";
-    String signUpURL="";
-   // String municipalityURL = "http://192.168.1.174:8080/pabson/spinner.php";
-    String municipalityURL = "http://popularkoju.com.np/id1277129_lintendforum/category.php";
+
+    String loginURL = "http://xdroid051.000webhostapp.com/pabson/pabson/login/login.php";
+   // String loginURL = "http://192.168.1.174:8080/pabson/login/login.php";
+    String signUpURL = "http://xdroid051.000webhostapp.com/pabson/pabson/login/signup.php";
+   // String signUpURL="http://192.168.1.174:8080/pabson/login/signup.php";
+    //String municipalityURL = "http://192.168.1.174:8080/pabson/spinner.php";
+    String municipalityURL = "http://xdroid051.000webhostapp.com/pabson/pabson/spinner.php";
+    //String municipalityURL = "http://popularkoju.com.np/id1277129_lintendforum/category.php";
     List<String> categories = new ArrayList<String>();
     //ArrayList<String> categories;
+
+
+
+
 
 
     @Override
@@ -83,8 +95,15 @@ public class loginActivity extends AppCompatActivity {
 
         forgetPassword = findViewById(R.id.forgetpassword);
 
-        dialog = new ProgressDialog(this);
-        dialog.setMessage("Please wait...");
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Please wait...");
+
+        //Session Mannager
+        sessionManager = new SessionManager(loginActivity.this);
+        if(sessionManager.isLoggedIn()) {
+            startActivity(new Intent(this, MainActivity.class));
+        }
+
 
 //        final String target =username.getText().toString().trim();
 //        //final boolean result = android.util.Patterns.EMAIL_ADDRESS.matcher(target).matches();
@@ -108,7 +127,7 @@ public class loginActivity extends AppCompatActivity {
                     password.setError("Password Cannot be empty");
                     password.requestFocus();
                 } else {
-                    dialog.show();
+                    progressDialog.show();
                     loginToServer();
 
                 }
@@ -158,7 +177,7 @@ public class loginActivity extends AppCompatActivity {
 
         categories = new ArrayList<>();
         //SPINNER
-        loadSpinnerData(municipalityURL);
+        loadSpinnerData();
         spinnererror = v.findViewById(R.id.spinnerErr);
 
         AlertDialog.Builder builders = new AlertDialog.Builder(loginActivity.this, R.style.DialogTheme);
@@ -212,9 +231,9 @@ public class loginActivity extends AppCompatActivity {
 
     }
 
-    private void loadSpinnerData(String urls) {                                                         // spinner method
+    private void loadSpinnerData() {                                                         // spinner method
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, urls, new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, municipalityURL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
 
@@ -225,7 +244,7 @@ public class loginActivity extends AppCompatActivity {
 
 
                         JSONObject obj1 = array1.getJSONObject(i);
-                        String cate = obj1.getString("category");
+                        String cate = obj1.getString("name");
                         categories.add(cate);
 
                     }
@@ -269,26 +288,26 @@ public class loginActivity extends AppCompatActivity {
                 try {
                     JSONObject obj1 = new JSONObject(response);
 
-                    //  String emailFromShredpref = username.getText().toString();
+                      String emailFromShredpref = username.getText().toString();
                     if (obj1.names().get(0).equals("success")) {
-                        dialog.dismiss();
+                        progressDialog.dismiss();
                         Toast.makeText(loginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
                         //created session
 
-                        //  sessionManager.createLoginSession(emailFromShredpref);
+                          sessionManager.createLoginSession(emailFromShredpref);
 //                                new
                         Intent i = new Intent(loginActivity.this, MainActivity.class);
-                        //i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(i);
 
-                        // loginActivity.this.finish();
+                         loginActivity.this.finish();
                     } else {
-                        dialog.dismiss();
+                        progressDialog.dismiss();
                         Toast.makeText(loginActivity.this, "Invalid Credentials", Toast.LENGTH_SHORT).show();
                     }
 
                 } catch (Exception e) {
-                    dialog.dismiss();
+                    progressDialog.dismiss();
                     Toast.makeText(loginActivity.this, "Exception Caught", Toast.LENGTH_SHORT).show();
                 }
 
@@ -296,7 +315,7 @@ public class loginActivity extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                dialog.dismiss();
+                progressDialog.dismiss();
                 Toast.makeText(loginActivity.this, "No Internet Connectivity", Toast.LENGTH_SHORT).show();
 
             }
@@ -349,16 +368,16 @@ public void issignupValid() {
         pName.setError("Name cannot be empty");
          pName.requestFocus();
          }
-   else if( pEmail.length() == 0 ){
-        pEmail.setError("Email cannot be empty");
-        pEmail.requestFocus();}
+//   else if( pEmail.length() == 0 ){
+//        pEmail.setError("Email cannot be empty");
+//        pEmail.requestFocus();}
    else if( pMobno.length() == 0) {
         pMobno.setError("Field cannot be empty");
         pMobno.requestFocus();
 
     }
 
-    else if(emailOfScl.getText().toString().trim().matches(rejex)){
+    else if(!emailOfScl.getText().toString().trim().matches(emailCheck)){
         emailOfScl.setError("Enter valid Email");}
 
     else if (pMobno.getText().toString().trim().length()!= 10){
@@ -398,7 +417,7 @@ public void sendDataSignup(){
     final String sentPricipalContactNum= pMobno.getText().toString().trim();
 
 
-    dialog.show();
+    progressDialog.show();
 
 
     requestQueues = Volley.newRequestQueue(getApplicationContext());
@@ -411,24 +430,26 @@ public void sendDataSignup(){
 
                 //  String emailFromShredpref = username.getText().toString();
                 if (obj1.names().get(0).equals("success")) {
-                    dialog.dismiss();
-                    Toast.makeText(loginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
+                    progressDialog.dismiss();
+                    Toast.makeText(loginActivity.this, "Sign up Successful", Toast.LENGTH_SHORT).show();
                     //created session
+                    progressDialog.dismiss();
+                    dialogs.dismiss();
 
                     //  sessionManager.createLoginSession(emailFromShredpref);
 //                                new
-                    Intent i = new Intent(loginActivity.this, MainActivity.class);
+                  //  Intent i = new Intent(loginActivity.this, MainActivity.class);
                     //i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    startActivity(i);
+                    //startActivity(i);
 
                     // loginActivity.this.finish();
                 } else {
-                    dialog.dismiss();
-                    Toast.makeText(loginActivity.this, "Invalid Credentials", Toast.LENGTH_SHORT).show();
+                    progressDialog.dismiss();
+                    Toast.makeText(loginActivity.this, "Sign up unsuccess", Toast.LENGTH_SHORT).show();
                 }
 
             } catch (Exception e) {
-                dialog.dismiss();
+                progressDialog.dismiss();
                 Toast.makeText(loginActivity.this, "Exception Caught", Toast.LENGTH_SHORT).show();
             }
 
@@ -436,7 +457,7 @@ public void sendDataSignup(){
     }, new Response.ErrorListener() {
         @Override
         public void onErrorResponse(VolleyError error) {
-            dialog.dismiss();
+            progressDialog.dismiss();
             Toast.makeText(loginActivity.this, "No Internet Connectivity", Toast.LENGTH_SHORT).show();
 
         }

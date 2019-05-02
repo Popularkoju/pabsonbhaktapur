@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView android:layout_height="match_parent"
+<ScrollView xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
     android:layout_width="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android" >
 
@@ -12,6 +13,7 @@
     android:paddingBottom="16dp">
     <RelativeLayout
         android:layout_width="match_parent"
+        android:id="@+id/relative"
         android:layout_height="match_parent">
         <ImageView
             android:id="@+id/cross"
@@ -38,8 +40,25 @@
         <!--xmlns:android="http://schemas.android.com/apk/res/android" >-->
 
         <RelativeLayout
+            android:layout_below="@+id/relative"
             android:layout_width="match_parent"
             android:layout_height="match_parent" android:layout_marginTop="2dp">
+
+            <TextView
+                android:id="@+id/login"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="20dp"
+                android:text="Login Information:"
+                android:fontFamily="@font/questrial"
+                android:textColor="#ffff"
+                android:textSize="14sp"
+                android:layout_alignParentRight="true"
+
+                />
 
 
 
@@ -95,14 +114,29 @@
                 android:gravity="right"
                 android:textColor="#ffff"
                 android:textSize="14sp" />
+            <TextView
+                android:id="@+id/name"
+                android:layout_below="@id/schooldetails"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="20dp"
+                android:text="Name of School:"
+                android:fontFamily="@font/questrial"
+                android:textColor="#ffff"
+                android:textSize="14sp"
+                android:layout_alignParentRight="true"
+
+                />
 
             <EditText
                 android:id="@+id/NameOFSchool"
-                android:layout_below="@id/schooldetails"
+                android:layout_below="@id/name"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="1dp"
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/edit_text_background"
                 android:drawablePadding="16dp"
@@ -116,12 +150,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="16dp"
-
                 android:layout_marginEnd="20dp"
                 android:text="Choose Municipality:"
                 android:fontFamily="@font/questrial"
-
-
                 android:textColor="#ffff"
                 android:textSize="14sp"
                 android:layout_alignParentRight="true"
@@ -142,26 +173,57 @@
                 android:paddingLeft="3dp"
                 android:background="@drawable/edit_text_background"/>
 
-            <EditText
-                android:id="@+id/locationOfSchool"
+            <TextView
+                android:id="@+id/adr"
                 android:layout_below="@id/spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="20dp"
+                android:text="Address"
+                android:fontFamily="@font/questrial"
+                android:textColor="#ffff"
+                android:textSize="14sp"
+                android:layout_alignParentRight="true"
+
+                />
+            <EditText
+
+                android:id="@+id/locationOfSchool"
+                android:layout_below="@id/adr"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="1dp"
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/edit_text_background"
                 android:drawablePadding="16dp"
                 android:fontFamily="@font/questrial"
                 android:hint="Address Eg: Lokanthali"
                 android:padding="16dp" />
+            <TextView
+                android:id="@+id/phonenumber"
+                android:layout_below="@id/locationOfSchool"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="20dp"
+                android:text="Contant Number:"
+                android:fontFamily="@font/questrial"
+                android:textColor="#ffff"
+                android:textSize="14sp"
+                android:layout_alignParentRight="true"
+
+                />
             <EditText
                 android:id="@+id/contactOfSchool"
-                android:layout_below="@id/locationOfSchool"
+                android:layout_below="@id/phonenumber"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="1dp"
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/edit_text_background"
                 android:drawablePadding="16dp"
@@ -169,13 +231,28 @@
                 android:hint="Phone Number of School"
                 android:inputType="number"
                 android:padding="16dp" />
+            <TextView
+                android:id="@+id/email"
+                android:layout_below="@id/contactOfSchool"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="20dp"
+                android:text="Email:"
+                android:fontFamily="@font/questrial"
+                android:textColor="#ffff"
+                android:textSize="14sp"
+                android:layout_alignParentRight="true"
+
+                />
             <EditText
                 android:id="@+id/emailOfSchool"
-                android:layout_below="@id/contactOfSchool"
+                android:layout_below="@id/email"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="1dp"
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/edit_text_background"
                 android:drawablePadding="16dp"
@@ -183,13 +260,28 @@
                 android:hint="Email of School"
                 android:inputType="textEmailAddress"
                 android:padding="16dp" />
+            <TextView
+                android:id="@+id/estd"
+                android:layout_below="@id/emailOfSchool"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="20dp"
+                android:text="Established Date:"
+                android:fontFamily="@font/questrial"
+                android:textColor="#ffff"
+                android:textSize="14sp"
+                android:layout_alignParentRight="true"
+
+                />
             <EditText
                 android:id="@+id/EstdOfSchool"
-                android:layout_below="@id/emailOfSchool"
+                android:layout_below="@id/estd"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="1dp"
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/edit_text_background"
                 android:drawablePadding="16dp"
@@ -211,29 +303,59 @@
                 android:gravity="right"
                 android:textColor="#ffff"
                 android:textSize="14sp" />
+            <TextView
+                android:id="@+id/prName"
+                android:layout_below="@id/Principaldetails"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="20dp"
+                android:text="Name:"
+                android:fontFamily="@font/questrial"
+                android:textColor="#ffff"
+                android:textSize="14sp"
+                android:layout_alignParentRight="true"
+
+                />
 
             <EditText
                 android:id="@+id/nameofPrincipal"
-                android:layout_below="@id/Principaldetails"
+                android:layout_below="@id/prName"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="1dp"
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/edit_text_background"
                 android:drawablePadding="16dp"
                 android:fontFamily="@font/questrial"
                 android:hint="Name"
                 android:padding="16dp" />
+            <TextView
+                android:id="@+id/prEmail"
+                android:layout_below="@id/nameofPrincipal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="20dp"
+                android:text="Email:"
+                android:fontFamily="@font/questrial"
+                android:textColor="#ffff"
+                android:textSize="14sp"
+                android:layout_alignParentRight="true"
+
+                />
 
 
             <EditText
                 android:id="@+id/emailOfPrinciipal"
-                android:layout_below="@id/nameofPrincipal"
+                android:layout_below="@id/prEmail"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="1dp"
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/edit_text_background"
                 android:drawablePadding="16dp"
@@ -241,13 +363,28 @@
                 android:hint="Email Address"
                 android:inputType="textEmailAddress"
                 android:padding="16dp" />
+            <TextView
+                android:id="@+id/prphone"
+                android:layout_below="@id/emailOfPrinciipal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="20dp"
+                android:text="Contact Number:"
+                android:fontFamily="@font/questrial"
+                android:textColor="#ffff"
+                android:textSize="14sp"
+                android:layout_alignParentRight="true"
+
+                />
             <EditText
                 android:id="@+id/contactofPrincipal"
-                android:layout_below="@id/emailOfPrinciipal"
+                android:layout_below="@id/prphone"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="1dp"
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/edit_text_background"
                 android:drawablePadding="16dp"
