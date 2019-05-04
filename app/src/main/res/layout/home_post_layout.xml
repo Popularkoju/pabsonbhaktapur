@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <android.support.design.card.MaterialCardView
+        android:id="@+id/carddetails"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+       >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+        <ImageView
+            android:id="@+id/imageProfile"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="14dp"
+            android:src="@drawable/pabb"/>
+
+        <TextView
+            android:id="@+id/senderName"
+            android:layout_toRightOf="@+id/imageProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Name of School"
+            android:layout_marginTop="20dp"
+            android:paddingStart="8dp"
+            android:fontFamily="@font/questrial"
+            android:textSize="20dp"/>
+
+            <TextView
+            android:id="@+id/dateTIme"
+            android:layout_toRightOf="@+id/imageProfile" android:layout_below="@id/senderName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2016" android:layout_marginTop="2dp"
+            android:paddingStart="8dp"
+            android:fontFamily="@font/questrial"
+            android:textSize="17dp"/>
+            <View
+                android:id="@+id/view"
+                android:layout_marginTop="6dp"
+            android:layout_below="@id/dateTIme"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"/>
+            <android.support.design.card.MaterialCardView
+                android:id="@+id/cardquestion"
+                android:layout_below="@+id/view"
+                android:layout_margin="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                app:cardElevation="5dp">
+                <TextView
+                    android:id="@+id/notice"
+                    android:layout_toRightOf="@+id/imageProfile" android:layout_below="@id/senderName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="today is holiday hai, voli sap jana  aainu parxa la." android:layout_marginTop="2dp"
+                    android:padding="16dp"
+                    android:fontFamily="@font/questrial"
+                    android:textSize="17dp"/>
+
+
+
+            </android.support.design.card.MaterialCardView>
+        </RelativeLayout>
+
+
+    </android.support.design.card.MaterialCardView>
+
+
+</RelativeLayout>
