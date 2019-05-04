@@ -1,10 +1,8 @@
 package lintend.pabson.bhaktapur;
 
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Message;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.BottomNavigationView;
@@ -12,11 +10,10 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
-import android.widget.Toolbar;
 
-import lintend.pabson.bhaktapur.ButtomNavbarActivity.HomeActivity;
-import lintend.pabson.bhaktapur.ButtomNavbarActivity.MessageActivity;
-import lintend.pabson.bhaktapur.ButtomNavbarActivity.MoreActivity;
+import lintend.pabson.bhaktapur.ButtomNavbarActivity.Home.HomeActivity;
+import lintend.pabson.bhaktapur.ButtomNavbarActivity.Message.MessageActivity;
+import lintend.pabson.bhaktapur.ButtomNavbarActivity.More.MoreActivity;
 
 public class MainActivity extends AppCompatActivity {
     public BottomNavigationView bottomNavigationView;

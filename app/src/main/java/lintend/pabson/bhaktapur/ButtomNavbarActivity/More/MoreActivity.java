@@ -1,6 +1,7 @@
-package lintend.pabson.bhaktapur.ButtomNavbarActivity;
+package lintend.pabson.bhaktapur.ButtomNavbarActivity.More;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -13,9 +14,11 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import lintend.pabson.bhaktapur.ButtomNavbarActivity.More.InsideMore.ProfileActivity;
 import lintend.pabson.bhaktapur.R;
 
 public class MoreActivity extends Fragment {
@@ -40,7 +43,45 @@ public class MoreActivity extends Fragment {
         mGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
                 Toast.makeText(getActivity(),String.valueOf(position), Toast.LENGTH_SHORT).show();
+
+
+                switch(position){
+                    //Municipality grid
+                    case 0:{
+
+                        break;}
+
+                    //School grid
+                    case 1:{
+                        break;
+                    }
+                    //Add Municipality
+                    case 2:{
+                        break;
+                    }
+                    //Add School
+                    case 3:{
+                        break;
+                    }
+                    //profile
+                    case 4:{
+                        Intent i = new Intent(getContext(), ProfileActivity.class);
+                        startActivity(i);
+                        break;
+                    }
+                    //setting
+                    case 5:{
+                        break;
+                    }
+
+
+
+
+
+                }
+
             }
         });
     }

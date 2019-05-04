@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    >
+
+
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/toolbar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+
+            app:contentScrim="?attr/colorPrimary"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+
+
+            <ImageView
+                android:id="@+id/expandedImage"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:padding="16dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/pabb"
+                app:layout_collapseMode="parallax"
+                app:layout_collapseParallaxMultiplier="0.7" />
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin"
+                app:popupTheme="@style/AppTheme.PopupOverlay"
+                app:menu="@menu/content_scrolling"/>
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+
+
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.design.widget.FloatingActionButton
+    android:id="@+id/fab"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/fab_margin"
+    app:layout_anchor="@id/app_bar"
+    app:layout_anchorGravity="bottom|end"
+   android:src="@drawable/ic_call_white_24dp" />
+    >
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/scroll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="false"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+
+        >
+        <android.support.design.card.MaterialCardView
+            android:id="@+id/card1"
+
+            app:layout_anchorGravity="bottom|end"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
+            android:paddingBottom="16dp"
+
+            app:cardElevation="5dp"
+           >
+            <RelativeLayout
+                android:id="@+id/rel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <android.support.design.card.MaterialCardView
+                android:id="@+id/sclDetailCard"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                app:cardCornerRadius="1dp"
+                android:layout_margin="8dp"
+                app:cardElevation="5dp"
+                >
+                <TextView
+                android:id="@+id/schooldetails"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/questrial"
+                    android:padding="16dp"
+                    android:gravity="center_vertical"
+                android:text="School Details:"
+
+                android:textSize="17sp"/>
+                <TextView
+                    android:id="@+id/schooldetail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/questrial"
+                    android:padding="16dp"
+                    android:gravity="center_vertical"
+                    android:text="School Details:"
+
+                    android:textSize="17sp"/>
+            </android.support.design.card.MaterialCardView>
+            <android.support.design.card.MaterialCardView
+                android:id="@+id/cardDetailsINfo"
+                android:layout_below="@+id/sclDetailCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="1dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                app:cardElevation="5dp"
+                android:layout_marginBottom="6dp"
+
+                >
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/schoolname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/questrial"
+                    android:paddingTop="8dp"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="8dp"
+                    android:paddingBottom="8dp"
+                    android:gravity="center_vertical"
+                    android:text="Abcdefghijkl higher secondary school:"
+                    android:textSize="17sp"
+                    android:drawableLeft="@drawable/password_icon"
+                    android:drawablePadding="16dp"/>
+
+                    <TextView
+                    android:id="@+id/estdD"
+                    android:layout_below="@id/schoolname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/questrial"
+                    android:paddingTop="8dp"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="8dp"
+                    android:paddingBottom="8dp"
+                    android:gravity="center_vertical"
+                    android:text="Estd:"
+                    android:textColor="@color/colorReddy"
+                    android:textSize="17sp"
+                    />
+                    <TextView
+                        android:id="@+id/estdDate"
+                       android:layout_toRightOf="@+id/estdD"
+                        android:layout_below="@id/schoolname"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/questrial"
+                        android:paddingTop="8dp"
+                        android:paddingStart="1dp"
+                        android:paddingEnd="8dp"
+                        android:paddingBottom="8dp"
+                        android:gravity="center_vertical"
+                        android:text="1996"
+
+                        android:textSize="17sp"
+                        />
+                    <TextView
+                        android:id="@+id/schoolocation"
+                        android:layout_below="@id/estdD"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/questrial"
+                        android:paddingTop="8dp"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="8dp"
+                        android:paddingBottom="8dp"
+                        android:gravity="center_vertical"
+                        android:text="Lokanthali 14,"
+                        android:textSize="17sp"
+
+                        android:drawableLeft="@drawable/password_icon"
+                        android:drawablePadding="16dp"/>
+                    <TextView
+                        android:id="@+id/municipality"
+                        android:layout_toRightOf="@+id/schoolocation"
+                        android:layout_below="@id/estdDate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/questrial"
+                        android:paddingTop="10dp"
+                        android:paddingStart="1dp"
+                        android:paddingEnd="8dp"
+                        android:paddingBottom="8dp"
+                        android:gravity="center_vertical"
+                        android:text="Suryabinayak"
+
+                        android:textSize="17sp"
+                        />
+
+                    <TextView
+                        android:id="@+id/emailSch"
+                        android:layout_below="@+id/municipality"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/questrial"
+                        android:paddingTop="8dp"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="8dp"
+                        android:paddingBottom="8dp"
+                        android:gravity="center_vertical"
+                        android:text="xyz@gmail.com"
+                        android:textSize="17sp"
+                        android:drawableLeft="@drawable/account_icon"
+                        android:drawablePadding="16dp"/>
+                    <TextView
+                        android:id="@+id/contactnumSchool"
+                        android:layout_below="@+id/emailSch"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/questrial"
+                        android:paddingTop="8dp"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="8dp"
+                        android:paddingBottom="8dp"
+                        android:gravity="center_vertical"
+                        android:text="016612321"
+                        android:textSize="17sp"
+                        android:drawableLeft="@drawable/account_icon"
+                        android:drawablePadding="16dp"/>
+                </RelativeLayout>
+
+
+
+            </android.support.design.card.MaterialCardView>
+
+                <android.support.design.card.MaterialCardView
+                    android:layout_width="match_parent"
+                   android:id="@+id/cardPrincipal"
+                    android:layout_below="@+id/cardDetailsINfo"
+                    android:layout_height="50dp"
+                    app:cardCornerRadius="1dp"
+                    android:layout_margin="8dp"
+                    app:cardElevation="5dp"
+                    >
+                    <TextView
+                        android:id="@+id/prindetails"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/questrial"
+                        android:padding="16dp"
+                        android:gravity="center_vertical"
+                        android:text="Principal Details:"
+
+                        android:textSize="17sp"/>
+                    <TextView
+                        android:id="@+id/pdetail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/questrial"
+                        android:padding="16dp"
+                        android:gravity="center_vertical"
+                        android:text="Principal Details:"
+
+                        android:textSize="17sp"/>
+
+
+
+                </android.support.design.card.MaterialCardView>
+
+                <android.support.design.card.MaterialCardView
+
+                    android:id="@+id/cardDetailsINf"
+                    android:layout_below="@+id/cardPrincipal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="1dp"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    app:cardElevation="5dp"
+                    android:layout_marginBottom="6dp"
+                   >
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/principalname"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/questrial"
+                        android:paddingTop="8dp"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="8dp"
+                        android:paddingBottom="8dp"
+                        android:gravity="center_vertical"
+                        android:text="Modi kumar Jha"
+                        android:textSize="17sp"
+                        android:drawableLeft="@drawable/password_icon"
+                        android:drawablePadding="16dp"/>
+                        <TextView
+                            android:id="@+id/principalPhone"
+                            android:layout_below="@+id/principalname"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/questrial"
+                            android:paddingTop="8dp"
+                            android:paddingStart="16dp"
+                            android:paddingEnd="8dp"
+                            android:paddingBottom="8dp"
+                            android:gravity="center_vertical"
+                            android:text="9843212356"
+                            android:textSize="17sp"
+                            android:drawableLeft="@drawable/password_icon"
+                            android:drawablePadding="16dp"/>
+                        <ImageView
+                            android:id="@+id/dialPrincipalNum"
+                            android:layout_below="@id/principalname"
+                            android:layout_toRightOf="@id/principalPhone"
+                            android:layout_marginTop="8dp"
+
+                            android:layout_marginStart="50dp"
+                            android:layout_marginEnd="6dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_width="wrap_content"
+
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_call_black_24dp"/>
+
+
+                    </RelativeLayout>
+
+
+
+                </android.support.design.card.MaterialCardView>
+
+
+
+
+
+
+
+            </RelativeLayout>
+
+
+
+
+
+
+            </android.support.design.card.MaterialCardView>
+
+
+
+    </RelativeLayout>
+
+
+
+
+
+
+
+
+
+    </android.support.v4.widget.NestedScrollView>
+
+
+
+
+
+</android.support.design.widget.CoordinatorLayout>
