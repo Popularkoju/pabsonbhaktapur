@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:paddingTop="0dp">
+
+   <RelativeLayout
+       android:id="@+id/toolbar"
+       android:layout_width="match_parent"
+       android:layout_height="50dp"
+       android:background="@color/colorReddy">
+
+       <ImageView
+           android:id="@+id/backButton"
+           android:layout_width="40dp"
+           android:layout_height="30dp"
+           android:layout_alignParentStart="true"
+           android:layout_centerVertical="true"
+          android:layout_marginStart="6dp"
+           android:src="@drawable/ic_naviback"/>
+
+       <TextView
+           android:layout_toRightOf="@+id/backButton"
+           android:layout_centerVertical="true"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_marginStart="16dp"
+           android:text="Setting"
+           android:textColor="@color/white"
+           android:textSize="25sp"
+           android:fontFamily="@font/questrial"/>
+
+   </RelativeLayout>
+
+    <android.support.design.card.MaterialCardView
+        android:id="@+id/editcard"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@+id/toolbar"
+        android:layout_marginTop="8dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:drawableLeft="@drawable/account_icon"
+            android:drawablePadding="16dp"
+            android:paddingStart="16dp"
+            android:text="Edit Profile"
+            android:textSize="17sp" />
+    </android.support.design.card.MaterialCardView>
+    <android.support.design.card.MaterialCardView
+    android:id="@+id/changePasswordcard"
+    android:layout_below="@+id/editcard"
+    android:layout_marginTop="8dp"
+    android:layout_width="match_parent"
+    android:layout_height="50dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/password_icon"
+        android:drawablePadding="16dp"
+        android:paddingStart="16dp"
+        android:textSize="17sp"
+        android:layout_gravity="center_vertical"
+        android:text="Change Password"/>
+</android.support.design.card.MaterialCardView>
+    <android.support.design.card.MaterialCardView
+        android:id="@+id/logoutcard"
+
+        android:layout_below="@+id/changePasswordcard"
+        android:layout_marginTop="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_logout"
+            android:drawablePadding="16dp"
+            android:layout_gravity="center_vertical"
+            android:paddingStart="16dp"
+            android:textSize="17sp"
+            android:text="Log Out "/>
+    </android.support.design.card.MaterialCardView>
+
+
+
+
+
+
+
+
+</RelativeLayout>
