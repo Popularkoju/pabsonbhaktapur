@@ -9,4 +9,7 @@
     <color name="colorgreen">#40C057</color>
     <color name="colorbluely">#742BCE</color>
     <color name="white">#FFF</color>
+
+    <color name="success">#28A745</color>
+    <color name="danger">#dc3545</color>
 </resources>

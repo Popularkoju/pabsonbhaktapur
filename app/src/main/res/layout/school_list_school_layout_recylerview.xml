@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:paddingTop="0dp">
+
+    <RelativeLayout
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/colorReddy">
+
+        <ImageView
+            android:id="@+id/backButton"
+            android:layout_width="40dp"
+            android:layout_height="30dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="6dp"
+            android:src="@drawable/ic_naviback"/>
+
+        <TextView
+            android:layout_toRightOf="@+id/backButton"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Schools"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:fontFamily="@font/questrial"/>
+
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_below="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <android.support.v7.widget.RecyclerView
+
+        android:id="@+id/school_list_recycleview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+
+    </android.support.v7.widget.RecyclerView>
+    </RelativeLayout>
+
+</RelativeLayout>

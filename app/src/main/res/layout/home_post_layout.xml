@@ -32,6 +32,7 @@
             android:layout_marginTop="20dp"
             android:paddingStart="8dp"
             android:fontFamily="@font/questrial"
+            android:textStyle="bold"
             android:textSize="20dp"/>
 
             <TextView
@@ -50,7 +51,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="2dp"/>
             <android.support.design.card.MaterialCardView
-                android:id="@+id/cardquestion"
+                android:id="@+id/cardnotice"
                 android:layout_below="@+id/view"
                 android:layout_margin="8dp"
                 android:layout_width="match_parent"
@@ -62,8 +63,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="today is holiday hai, voli sap jana  aainu parxa la." android:layout_marginTop="2dp"
-                    android:padding="16dp"
-                    android:fontFamily="@font/questrial"
+                    android:padding="8dp"
+
+
                     android:textSize="17dp"/>
 
 

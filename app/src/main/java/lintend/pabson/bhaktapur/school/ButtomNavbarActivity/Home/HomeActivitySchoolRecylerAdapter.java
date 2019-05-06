@@ -3,6 +3,7 @@ package lintend.pabson.bhaktapur.school.ButtomNavbarActivity.Home;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.design.card.MaterialCardView;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -15,7 +16,7 @@ import java.util.List;
 import lintend.pabson.bhaktapur.CustomToast.CustomToastSuccess;
 import lintend.pabson.bhaktapur.DataModule;
 import lintend.pabson.bhaktapur.R;
-import lintend.pabson.bhaktapur.school.ButtomNavbarActivity.More.InsideMore.ProfileActivitySchool;
+import lintend.pabson.bhaktapur.school.ButtomNavbarActivity.More.InsideMore.Profile_school.ProfileActivitySchool;
 
 public class HomeActivitySchoolRecylerAdapter extends RecyclerView.Adapter<HomeActivitySchoolRecylerAdapter.MyViewHolder> {
 
@@ -43,7 +44,7 @@ public class HomeActivitySchoolRecylerAdapter extends RecyclerView.Adapter<HomeA
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         TextView sendername, datetime, notice;
-        CardView cardnameDate, cardNotice;
+        MaterialCardView cardnameDate, cardNotice;
 
 
         public MyViewHolder(@NonNull View itemView) {
@@ -70,8 +71,8 @@ public class HomeActivitySchoolRecylerAdapter extends RecyclerView.Adapter<HomeA
         myViewHolder.cardnameDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(c, ProfileActivitySchool.class);
-                c.startActivity(i);
+//                Intent i = new Intent(c, ProfileActivitySchool.class);
+//                c.startActivity(i);
             }
         });
         

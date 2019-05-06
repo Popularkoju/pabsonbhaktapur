@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <android.support.v7.widget.CardView
+        android:id="@+id/School_name_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:padding="10dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:padding="6dp">
+
+            <ImageView
+                android:id="@+id/schoolImage"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="16dp"
+                android:gravity="center_vertical"
+                android:src="@drawable/pabb"
+                android:contentDescription="TODO" />
+
+            <TextView
+                android:id="@+id/txtSchooname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_toEndOf="@id/schoolImage"
+
+                android:text="School Name"
+                android:textSize="19sp" />
+
+            <TextView
+                android:id="@+id/txtPhoneNUmber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtSchooname"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="6dp"
+                android:layout_toEndOf="@+id/schoolImage"
+                android:text="Contact NUmber"
+                android:textSize="17sp" />
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+</RelativeLayout>

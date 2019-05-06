@@ -1,12 +1,10 @@
 package lintend.pabson.bhaktapur;
 
 
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-
 
 
 import java.util.HashMap;
@@ -32,16 +30,16 @@ public class SessionManager {
     int PRIVATE_MODE = 0;
     // Sharedpref file name
     public static final String KEY_QUES_ID = "qid";
-    private static final String PREF_NAME = "Lintend";
+    private static final String PREF_NAME = "pabson";
 
     // All Shared Preferences Keys
     private static final String IS_LOGIN = "IsLoggedIn";
 
     // User name (make variable public to access from outside)
     public static final String KEY_EMAIL = "username";
+    public static final String KEY_USER_ID = "user_id";
+    public static final String KEY_ROLE = "role";
 //    public static final String KEY_NAME = "Name";
-
-
 
 
     // Constructor
@@ -55,7 +53,7 @@ public class SessionManager {
     /**
      * Create login session
      */
-    public void createLoginSession( String email) {
+    public void createLoginSession(String email) {
         // Storing login value as TRUE
         editor.putBoolean(IS_LOGIN, true);
 
@@ -65,25 +63,36 @@ public class SessionManager {
 //        editor.putString(KEY_NAME, name);
 
 
-
         // commit changes
         editor.commit();
     }
-    public void getQid( String qid) {
+
+    public void getQid(String qid) {
         // Storing login value as TRUE
         editor.putBoolean(IS_LOGIN, true);
 
         // Storing name in pref
-        editor.putString(KEY_QUES_ID, qid);
+        editor.putString(KEY_USER_ID, qid);
 
 //        editor.putString(KEY_NAME, name);
-
 
 
         // commit changes
         editor.commit();
     }
+    public void getRole(String qid) {
+        // Storing login value as TRUE
+        editor.putBoolean(IS_LOGIN, true);
 
+        // Storing name in pref
+        editor.putString(KEY_ROLE, qid);
+
+//        editor.putString(KEY_NAME, name);
+
+
+        // commit changes
+        editor.commit();
+    }
 
 
     /**
@@ -107,8 +116,6 @@ public class SessionManager {
         }*/
 
 
-
-
     /**
      * Get stored session data
      */
@@ -119,6 +126,9 @@ public class SessionManager {
 
         user.put(KEY_QUES_ID, pref.getString(KEY_QUES_ID, null));
 //        user.put(KEY_NAME, pref.getString(KEY_NAME, null));
+        user.put(KEY_USER_ID, pref.getString(KEY_USER_ID, null));
+
+        user.put(KEY_ROLE, pref.getString(KEY_ROLE, null));
 
 
         // return user
@@ -143,7 +153,7 @@ public class SessionManager {
 
         // Staring Login Activity
         _context.startActivity(i);
-        ((Activity)_context).finish();
+        ((Activity) _context).finish();
     }
 
     /**

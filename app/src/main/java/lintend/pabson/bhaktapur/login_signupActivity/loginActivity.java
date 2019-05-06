@@ -5,11 +5,9 @@ import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -34,11 +32,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import lintend.pabson.bhaktapur.CustomToast.CustomToastErr;
+import lintend.pabson.bhaktapur.CustomToast.CustomToastSuccess;
 import lintend.pabson.bhaktapur.MainActivity;
 import lintend.pabson.bhaktapur.R;
 import lintend.pabson.bhaktapur.SessionManager;
-
-import static java.security.AccessController.getContext;
 
 public class loginActivity extends AppCompatActivity {
 
@@ -50,7 +48,7 @@ public class loginActivity extends AppCompatActivity {
     Button loginButton, signupButton;
 
 
-//signup astvity
+//signup actvity
     EditText siUname, siPwd, nameOfScl, AddOfScl, phofSl, emailOfScl, estdDate;  // School Details
     EditText pName, pEmail,pMobno;
 
@@ -67,8 +65,8 @@ public class loginActivity extends AppCompatActivity {
     String emailCheck = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 
 
-    String loginURL = "http://xdroid051.000webhostapp.com/pabson/pabson/login/login.php";
-   // String loginURL = "http://192.168.1.174:8080/pabson/login/login.php";
+   String loginURL = "http://xdroid051.000webhostapp.com/pabson/pabson/login/login.php";
+  //  String loginURL = "http://192.168.1.174:8080/pabson/login/login.php";
     String signUpURL = "http://xdroid051.000webhostapp.com/pabson/pabson/login/signup.php";
    // String signUpURL="http://192.168.1.174:8080/pabson/login/signup.php";
     //String municipalityURL = "http://192.168.1.174:8080/pabson/spinner.php";
@@ -218,7 +216,7 @@ public class loginActivity extends AppCompatActivity {
             selectedCategory = spinner.getSelectedItem().toString();
             Toast.makeText(loginActivity.this, selectedCategory, Toast.LENGTH_SHORT).show();
         } catch ( Exception e){
-            Toast.makeText(loginActivity.this, "Something Went wrong", Toast.LENGTH_SHORT).show();
+            Toast.makeText(loginActivity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
 
         }
 
@@ -252,7 +250,7 @@ public class loginActivity extends AppCompatActivity {
                     // Creating adapter for spinner
                     ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(getApplicationContext(), R.layout.spinner_layout, categories);
 
-                    // Drop down layout style - list view with radio button
+                    // Drop down layout style
                     dataAdapter.setDropDownViewResource(R.layout.spinner_list);
 
                     // attaching data adapter to spinner
@@ -266,7 +264,8 @@ public class loginActivity extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getApplicationContext(), "No Internet Connection", Toast.LENGTH_SHORT).show();
+               // Toast.makeText(getApplicationContext(), "No Internet Connection", Toast.LENGTH_SHORT).show();
+                new CustomToastErr(loginActivity.this, "No Internet Connection");
 
 
             }
@@ -290,8 +289,15 @@ public class loginActivity extends AppCompatActivity {
 
                       String emailFromShredpref = username.getText().toString();
                     if (obj1.names().get(0).equals("success")) {
+                        String id = obj1.getString("id");
+                        String role = obj1.getString("role");
+                        //Toast.makeText(loginActivity.this, "user id = " +id+ "role = " + role, Toast.LENGTH_SHORT).show();
+                        sessionManager.getQid(id);
+                        sessionManager.getRole(role);
                         progressDialog.dismiss();
-                        Toast.makeText(loginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
+                       // Toast.makeText(loginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
+
+                        new CustomToastSuccess(loginActivity.this, "Login Successful");
                         //created session
 
                           sessionManager.createLoginSession(emailFromShredpref);
@@ -299,11 +305,11 @@ public class loginActivity extends AppCompatActivity {
                         Intent i = new Intent(loginActivity.this, MainActivity.class);
                         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(i);
-
-                         loginActivity.this.finish();
+                        loginActivity.this.finish();
                     } else {
                         progressDialog.dismiss();
-                        Toast.makeText(loginActivity.this, "Invalid Credentials", Toast.LENGTH_SHORT).show();
+                       // Toast.makeText(loginActivity.this, "Invalid Credentials", Toast.LENGTH_SHORT).show();
+                        new CustomToastErr(loginActivity.this, "Invalid Credentials");
                     }
 
                 } catch (Exception e) {
@@ -316,7 +322,8 @@ public class loginActivity extends AppCompatActivity {
             @Override
             public void onErrorResponse(VolleyError error) {
                 progressDialog.dismiss();
-                Toast.makeText(loginActivity.this, "No Internet Connectivity", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(loginActivity.this, "No Internet Connectivity", Toast.LENGTH_SHORT).show();
+                new CustomToastErr(loginActivity.this, "No Internet Connection");
 
             }
         }) {
@@ -431,21 +438,19 @@ public void sendDataSignup(){
                 //  String emailFromShredpref = username.getText().toString();
                 if (obj1.names().get(0).equals("success")) {
                     progressDialog.dismiss();
-                    Toast.makeText(loginActivity.this, "Sign up Successful", Toast.LENGTH_SHORT).show();
+                   // Toast.makeText(loginActivity.this, "Sign up Successful", Toast.LENGTH_SHORT).show();
+                    new CustomToastSuccess(loginActivity.this, "Signup Successfull");
                     //created session
                     progressDialog.dismiss();
                     dialogs.dismiss();
 
-                    //  sessionManager.createLoginSession(emailFromShredpref);
-//                                new
-                  //  Intent i = new Intent(loginActivity.this, MainActivity.class);
-                    //i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    //startActivity(i);
 
-                    // loginActivity.this.finish();
                 } else {
                     progressDialog.dismiss();
-                    Toast.makeText(loginActivity.this, "Sign up unsuccess", Toast.LENGTH_SHORT).show();
+                  //  Toast.makeText(loginActivity.this, "Sign up failed", Toast.LENGTH_SHORT).show();
+                   new CustomToastErr(loginActivity.this, "Sign Up Failed");
+
+
                 }
 
             } catch (Exception e) {
@@ -458,7 +463,8 @@ public void sendDataSignup(){
         @Override
         public void onErrorResponse(VolleyError error) {
             progressDialog.dismiss();
-            Toast.makeText(loginActivity.this, "No Internet Connectivity", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(loginActivity.this, "No Internet Connectivity", Toast.LENGTH_SHORT).show();
+            new CustomToastErr(loginActivity.this, "No Internet Connection");
 
         }
     }) {
@@ -488,6 +494,15 @@ public void sendDataSignup(){
     requestQueues.add(stringRequest);
 }
 
+    @Override
+    public void onBackPressed() {
+        Intent startMain = new Intent(Intent.ACTION_MAIN);
+        startMain.addCategory(Intent.CATEGORY_HOME);
+        startMain.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(startMain);
+
+    //   loginActivity.this.finish();
+    }
 }
 
 

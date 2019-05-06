@@ -1,5 +1,6 @@
 package lintend.pabson.bhaktapur;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,9 +12,9 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
-import lintend.pabson.bhaktapur.ButtomNavbarActivity.Home.HomeActivity;
-import lintend.pabson.bhaktapur.ButtomNavbarActivity.Message.MessageActivity;
-import lintend.pabson.bhaktapur.ButtomNavbarActivity.More.MoreActivity;
+import lintend.pabson.bhaktapur.school.ButtomNavbarActivity.Home.HomeActivitySchool;
+import lintend.pabson.bhaktapur.school.ButtomNavbarActivity.Message.MessageActivitySchool;
+import lintend.pabson.bhaktapur.school.ButtomNavbarActivity.More.MoreActivitySchool;
 
 public class MainActivity extends AppCompatActivity {
     public BottomNavigationView bottomNavigationView;
@@ -24,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
     //public static Context contextOfAppliction;
 //    public static  Context getContextOfAppliction(){
 //        return  contextOfAppliction;
+
+    //Context context = MainActivity.this;
 //    }
 
 
@@ -31,9 +34,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
         setContentView(R.layout.layout_view_mid);
 
         bottomNavigationView = findViewById(R.id.buttom_nav_bar);
+        //bottomNavigationView.setSelectedItemId(R.id.ic_home);
+        bottomNavigationView.getMenu().getItem(1).setChecked(true);
+
 
 
 
@@ -41,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         sm.isLoggedIn();
 
         ft= getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.layoutmid,new HomeActivity());
+        ft.replace(R.id.layoutmid,new HomeActivitySchool());
         ft.commit();
 
       //  contextOfAppliction = getApplicationContext();
@@ -61,21 +68,21 @@ public class MainActivity extends AppCompatActivity {
 
                     case R.id.ic_home: {
                         ft = getSupportFragmentManager().beginTransaction();
-                        ft.replace(R.id.layoutmid, new HomeActivity());
+                        ft.replace(R.id.layoutmid, new HomeActivitySchool());
                         ft.commit();
                         break;
                     }
 
                     case R.id.ic_messages: {
                         ft = getSupportFragmentManager().beginTransaction();
-                        ft.replace(R.id.layoutmid, new MessageActivity());
+                        ft.replace(R.id.layoutmid, new MessageActivitySchool());
                         ft.commit();
                         break;
                     }
 
                     case R.id.ic_more: {
                         ft = getSupportFragmentManager().beginTransaction();
-                        ft.replace(R.id.layoutmid, new MoreActivity());
+                        ft.replace(R.id.layoutmid, new MoreActivitySchool());
                         ft.commit();
                         break;
                     }
@@ -110,4 +117,5 @@ public class MainActivity extends AppCompatActivity {
         builder.create().show();
 
     }
+
 }

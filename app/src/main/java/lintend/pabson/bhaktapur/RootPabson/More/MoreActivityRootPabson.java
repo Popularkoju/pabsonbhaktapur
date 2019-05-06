@@ -1,11 +1,11 @@
-package lintend.pabson.bhaktapur.school.ButtomNavbarActivity.More;
+package lintend.pabson.bhaktapur.RootPabson.More;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,16 +14,15 @@ import android.widget.ArrayAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import lintend.pabson.bhaktapur.school.ButtomNavbarActivity.More.InsideMore.Profile_school.ProfileActivitySchool;
 import lintend.pabson.bhaktapur.R;
-import lintend.pabson.bhaktapur.school.ButtomNavbarActivity.More.InsideMore.SchoolList_school.SchoolListActivitySchool;
-import lintend.pabson.bhaktapur.school.ButtomNavbarActivity.More.InsideMore.Setting_school.SettingActivitySchool;
+import lintend.pabson.bhaktapur.school.ButtomNavbarActivity.More.InsideMore.Profile_school.ProfileActivitySchool;
 
-public class MoreActivitySchool extends Fragment {
+public class MoreActivityRootPabson extends Fragment {
     GridView mGridView;
-    String[] data = {"Municipality", "Schools List" ,"Profile" , "Setting"};
-    int[] images = {R.drawable.municipality , R.drawable.school, R.drawable.pabb , R.drawable.ic_settings_black_24dp };
+    String[] data = {"Municipality", "School", "Add Municipality", "Add School" ,"Profile" , "Setting"};
+    int[] images = {R.drawable.municipality , R.drawable.school ,R.drawable.addmunicipality , R.drawable.addschool , R.drawable.pabb , R.drawable.ic_settings_black_24dp };
 
     @Nullable
     @Override
@@ -43,7 +42,7 @@ public class MoreActivitySchool extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-              //  Toast.makeText(getActivity(),String.valueOf(position), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(),String.valueOf(position), Toast.LENGTH_SHORT).show();
 
 
                 switch(position){
@@ -52,27 +51,28 @@ public class MoreActivitySchool extends Fragment {
 
                         break;}
 
-                    //School list
-                    case 1:{ Intent i = new Intent(getContext(), SchoolListActivitySchool.class);
-                        startActivity(i);
-
+                    //School grid
+                    case 1:{
+                        break;
+                    }
+                    //Add Municipality
+                    case 2:{
+                        break;
+                    }
+                    //Add School
+                    case 3:{
                         break;
                     }
                     //profile
-                    case 2:{
+                    case 4:{
                         Intent i = new Intent(getContext(), ProfileActivitySchool.class);
                         startActivity(i);
                         break;
-
                     }
-                    //Setting
-                    case 3:{
-                        Intent i = new Intent(getContext(), SettingActivitySchool.class);
-                        startActivity(i);
-
+                    //setting
+                    case 5:{
                         break;
                     }
-
 
 
 
